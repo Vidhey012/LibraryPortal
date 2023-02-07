@@ -1,0 +1,104 @@
+ <link rel="stylesheet" type="text/css" href="/librarydata/styles/bootstrap4/bootstrap.min.css">
+<link href="/librarydata/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/librarydata/styles/courses_styles.css">
+<link rel="stylesheet" type="text/css" href="/librarydata/styles/courses_responsive.css">
+
+<script src="/librarydata/js/jquery-3.2.1.min.js"></script>
+<script src="/librarydata/styles/bootstrap4/popper.js"></script>
+<script src="/librarydata/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="/librarydata/plugins/greensock/TweenMax.min.js"></script>
+<script src="/librarydata/plugins/greensock/TimelineMax.min.js"></script>
+<script src="/librarydata/plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="/librarydata/plugins/greensock/animation.gsap.min.js"></script>
+<script src="/librarydata/plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="/librarydata/plugins/scrollTo/jquery.scrollTo.min.js"></script>
+<script src="/librarydata/plugins/easing/easing.js"></script>
+<script src="/librarydata/js/courses_custom.js"></script>   
+
+
+<script src="/librarydata/scripts/common/formModule.js"></script>
+
+<div class="home">
+<div class="home_background_container prlx_parent">
+<div class="home_background prlx" style="background-image:url(/librarydata/images/teachers_background.jpg)"></div>
+</div>
+<div class="home_content">
+<h1>Login Here</h1>
+</div>
+</div>
+
+ 
+ <div class="panel panel-success" id="formControllerDiv"
+	data-ng-controller="FormController">
+	<div class="panel-heading" id="panelHead">    
+		<label id="panelHeader">Login</label>
+	</div>
+	<div class="panel-body" style="margin-left: 37%; margin-right: 37%">
+		<form id="loginForm">
+			<div>
+				<img class="profile-img" src="/librarydata/images/Loginlogo.jpg" alt="No image" id="loginImg" align="middle">
+				<div class="form-group row input-group loginCredentialsDiv">
+					<span class="input-group-addon"><li
+						class="glyphicon glyphicon-user"></li></span><input type="text"
+						class="form-control" id="email" placeholder="Enter email"
+						data-ng-model="data.object.email">
+				</div>  
+				<div class="form-group row input-group loginCredentialsDiv">
+					<span class="input-group-addon">
+					<li class="glyphicon glyphicon-lock"></li></span><input type="password"
+						class="form-control" placeholder="Enter password" id="passwordId"
+						data-ng-model="data.object.password">
+				</div>
+				<button type="button" class="btn btn-success" id="loginBtn"
+					data-ng-click="login(data.object);">Sign in</button>
+				<a class="cursor-pointer" data-toggle="modal" data-target="#myModal"
+					style="margin-left: 10%;">Forgot password</a>
+				 <div id="errorDiv">
+					<div class="alert alert-danger"><center style="font-size: medium;">
+						<strong>Error: </strong>Invalid credentials</center>
+					</div> 
+				</div>
+			</div>  
+		</form>
+	</div>
+	<br/>
+
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Forgot password</h4>
+				</div>
+				<div class="modal-body">
+					Enter email: <input placeholder="xxxxxx@gmail.com" data-ng-model="email" required="required"
+						pattern="^[A-Za-z0-9.$]*[@][a-z]{3,8}.(com|gov|org|office|co.in|edu|in)" class="form-control" />
+				</div>
+				<div class="modal-footer">   
+					<button id="submit" type="button" class="btn btn-primary" data-ng-click="forgotPassword(email);">Submit</button>
+					&nbsp;&nbsp;<span id="spinner"></span>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+ <script type="text/javascript">
+ jQuery(document).ready(function() {
+		$("#errorDiv").hide();
+		$("#passwordId").keyup(function(event) {
+			if (event.keyCode == 13) {
+				$("#loginBtn").click();
+			}
+		});
+		angular.bootstrap(jQuery("#formControllerDiv"), [ 'formModule' ]);
+	});
+	jQuery("#submit").click(function() {
+		jQuery("#spinner").addClass("glyphicon glyphicon-refresh glyphicon-refresh-animate");
+	});   
+		</script>
+           
+
+
+ 

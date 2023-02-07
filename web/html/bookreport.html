@@ -1,0 +1,63 @@
+<script src="/librarydata/scripts/general/BookreportModule.js"></script>      
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+<style>            
+.panel {
+height: 320px;
+}    
+
+.panel-heading {
+text-align: center;
+font-size: 19px;    
+}
+.btn{
+  padding: 2px 4px;          
+}
+.table>tbody>tr>td{
+    padding:6px;     
+}
+.bookn{
+padding-top:15%;
+}
+</style>
+
+<div>
+
+<div id="rDiv" data-ng-controller="BookController" class="bookn">
+<center><h1 style="font-family:gabriola;color:#dc143c">Book details</h1></center>                     
+<div class="container"><br><br>
+<div id="viewdiv">
+<table class="table table-bordered">
+<tr style='background-color: ghostwhite'>
+<th>BookName</th>
+<th>ISBN</th>
+ <th>Author</th>
+
+<th>Code</th>
+<th>Publishdate</th>
+<th>NoOfCopies</th>
+</tr>
+<tr data-ng-repeat="userdata in ussdata">
+<td>{{userdata.bookname}}</td>
+<td>{{userdata.isbn}}</td>
+<td>{{userdata.author}}</td>
+<td>{{userdata.code}}</td>
+<td>{{userdata.publishdate}}</td>
+<td>{{userdata.noofcopies}}</td>
+</tr>
+</table>
+      </div>
+</div>      
+   
+</div>
+</div>
+<script type="text/javascript">
+jQuery(document).ready(function() {    
+
+angular.bootstrap(jQuery("#rDiv"), [ 'BookreportModule' ]);
+});
+</script>

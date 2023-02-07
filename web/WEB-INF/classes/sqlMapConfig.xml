@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+    	<typeAlias alias="RegModel" type="com.spring.Model.Registration" />
+    	  <typeAlias alias="ContactModel" type="com.spring.Model.Contact" />	
+    	   <typeAlias alias="Login" type="com.spring.Model.Login" />
+    	     
+    	       <typeAlias alias="BookModel" type="com.spring.Model.Book" />
+      </typeAliases>
+      
+    
+    <mappers>
+    	<mapper resource="com/example/security/model/Reg-MyBatis.xml" />
+       	 <mapper resource="com/example/security/model/Contact-MyBatis.xml" />	
+       	 <mapper resource="com/example/security/model/Login-MyBatis.xml" />	
+       
+       	 <mapper resource="com/example/security/model/Book-MyBatis.xml" />
+    </mappers>
+</configuration>   
+
+
+

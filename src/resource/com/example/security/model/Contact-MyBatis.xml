@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Contact">
+
+<insert id="Insert" parameterType="map">insert into	library.contact(name,email,message)
+values(#{p.name},#{p.email},#{p.message})</insert>
+<select id="getAll" resultType="ContactModel">
+select name,email,message from library.contact;
+</select>
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Login">
+
+	<select id="checkUser" parameterType="map" resultType="java.lang.Integer">
+		select
+		count(*) from library.register where
+		email = #{p.email} AND password 
+		
+		= #{p.password}
+	</select>
+
+	<select id="getUserDetails" parameterType="map" resultType="Login">
+		select email, password, type from library.register where
+		email = #{p.email} AND password = #{p.password}
+	</select>
+	<insert id="saveLogins" parameterType="map">
+		insert into library.login(email, password, &quot;ipAddress&quot;, logtime,type)
+		values(#{p.email},
+		#{p.password},#{p.ipAddress},current_timestamp,#{p.type})
+	</insert> 
+	<delete id="deleteLoginLog" parameterType="java.lang.String">
+		DELETE FROM
+		library.login  WHERE email = #{email}
+	</delete>
+	
+	<select id="adminLoggedIn" parameterType="map" resultType="java.lang.Integer">
+		select
+		count(*) from library.login where email = #{p.email} and
+		type = #{p.type}
+	</select>
+	
+	<select id="collegeLoggedIn" parameterType="map" resultType="java.lang.Integer">
+		select
+		count(*) from library.login where email = #{p.email} and
+		type = #{p.type}
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	</mapper>

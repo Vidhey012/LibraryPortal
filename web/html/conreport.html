@@ -1,0 +1,76 @@
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- <script src="/librarydata/js/jquery-3.2.1.min.js"></script>
+<script src="/librarydata/js/bootstrap.min.js"></script>
+<script src="/librarydata/js/mixitup.min.js"></script>
+<script src="/librarydata/js/circle-progress.min.js"></script>
+<script src="/librarydata/js/owl.carousel.min.js"></script>
+<script src="/librarydata/js/main.js"></script> -->
+<script src="/librarydata/scripts/general/ConReportModule.js"></script>
+
+<style>             
+.panel {   
+height: 320px;
+}    
+
+.panel-heading {
+text-align: center;
+font-size: 19px;    
+}
+.btn{
+  padding: 2px 4px;
+}
+.table>tbody>tr>td{
+    padding:6px;            
+}
+.con{
+padding-top:15%;
+}
+</style>
+
+<div>
+<!-- <div class="page-info-section set-bg" data-setbg="/librarydata/images/course_8.jpg">
+<div class="container">
+<div class="site-breadcrumb">
+<center><h2 style="font-family:gabriola;color:#dc143c">contact details</h2></center>
+<a href="index.html">Home</a>
+<span>contact details </span>
+</div>
+</div>      
+</div> -->
+<div id="cond" data-ng-controller="ContactController" class="con">
+<center><h1 style="font-family:gabriola;color:#dc143c">contact details</h1></center>                     
+<div class="container"><br><br>
+<div id="viewdiv">
+<table class="table table-bordered">
+<tr style='background-color: ghostwhite'>
+<th>name</th>
+<th>email</th>
+
+<th>message</th>
+
+</tr>
+<tr data-ng-repeat="userdata in condetails">
+<td>{{userdata.name}}</td>
+<td>{{userdata.email}}</td>
+
+<td>{{userdata.message}}</td>
+
+</tr>
+</table>
+      </div>
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+
+angular.bootstrap(jQuery("#cond"), [ 'ConReportModule' ]);
+});
+</script>
+</div>
+</div>
